@@ -5,6 +5,7 @@ import com.sda.finalprojectsda.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 // class responsible for business logic
 @Service

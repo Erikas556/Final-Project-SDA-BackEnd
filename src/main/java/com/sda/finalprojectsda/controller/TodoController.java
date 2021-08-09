@@ -49,9 +49,11 @@ public class TodoController {
     }
 
     // method to update a task in DB
-    @PutMapping("/update")
-    public ResponseEntity<Todo> updateTask(@RequestBody Todo todo) {
-        Todo updatedTask = todoService.updateTask(todo);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Todo> updateTask(@RequestBody Todo todo, @PathVariable Long id) {
+        Todo updatedTask = todoService.getTaskById(id);
+        updatedTask.setTask(todo.getTask());
+        todoService.updateTask(updatedTask);
         return new ResponseEntity<>(updatedTask, HttpStatus.OK);
     }
 }

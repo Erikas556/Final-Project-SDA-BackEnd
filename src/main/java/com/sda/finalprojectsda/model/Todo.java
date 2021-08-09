@@ -11,7 +11,7 @@ import javax.persistence.Id;
 // class which maps a specific table from the DB
 @Entity
 @Data
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // added this annotation because of some weird bug where which is caused by findById Get method.
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // added this annotation because of some weird bug which is caused by findById Get method.
 public class Todo {
 
 
