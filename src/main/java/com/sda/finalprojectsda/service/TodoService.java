@@ -26,6 +26,7 @@ public class TodoService {
     }
 
     public Todo createTask(Todo task) {
+        task.setIsDone(false);
         return todoRepo.save(task);
     }
 

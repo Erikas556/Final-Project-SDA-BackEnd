@@ -34,6 +34,7 @@ public class TodoController {
         return new ResponseEntity<>(task, HttpStatus.OK);
     }
 
+
     // method to create a task in DB
     @PostMapping("/create")
     public ResponseEntity<Todo> createTask(@RequestBody Todo task) {
@@ -55,5 +56,14 @@ public class TodoController {
         updatedTask.setTask(todo.getTask());
         todoService.updateTask(updatedTask);
         return new ResponseEntity<>(updatedTask, HttpStatus.OK);
+    }
+
+
+    @PutMapping("/done/{id}")
+    public ResponseEntity<Todo> taskDone(@PathVariable Long id) {
+        Todo completedTask = todoService.getTaskById(id);
+        completedTask.setIsDone(true);
+        todoService.updateTask(completedTask);
+        return new ResponseEntity<>(completedTask, HttpStatus.OK);
     }
 }
